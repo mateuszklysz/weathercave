@@ -1,14 +1,16 @@
 const theme = {
   color: {
-    primary: "#121212",
-    secondary: "#1c1c1c",
-    white: "#ffffff",
-    black: "#000000",
+    brightly: "#83B9FF",
+    cloudy: "#448AFF",
+    stormy: "#005ECB",
+    white: "#F5F5F5",
+    dark: "#E1E1E1",
+    black: "#121212",
   },
   size: {
-    s: "12px",
-    m: "18px",
-    l: "36px",
+    s: "18px",
+    m: "24px",
+    l: "48px",
   },
 };
 export default theme;
