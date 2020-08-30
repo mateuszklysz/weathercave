@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
-import axios from "axios";
 
 const SearchContainer = styled.input`
   width: 450px;

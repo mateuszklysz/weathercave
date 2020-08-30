@@ -13,6 +13,7 @@ const StyledContainer = styled.section`
 
 const StyledHeader = styled.h1`
   font-size: ${({ theme: { size } }) => size.l};
+  margin-bottom: 10px;
 `;
 
 const IndexPage = () => {

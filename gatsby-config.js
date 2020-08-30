@@ -8,13 +8,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `svg`,
-        path: `${__dirname}/src/assets/svg`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Check My Weather`,
@@ -42,5 +35,6 @@ module.exports = {
         component: require.resolve(`./src/layouts/layout.js`),
       },
     },
+    `gatsby-plugin-react-svg`,
   ],
 };
