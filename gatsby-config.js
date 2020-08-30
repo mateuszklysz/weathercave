@@ -37,9 +37,9 @@ module.exports = {
       options: { prefixes: [`/weather/*`] },
     },
     {
-      resolve: "gatsby-plugin-transition-link",
+      resolve: `gatsby-plugin-layout`,
       options: {
-        layout: require.resolve(`./src/layouts/layout.js`),
+        component: require.resolve(`./src/layouts/layout.js`),
       },
     },
   ],

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { navigate } from "gatsby";
 import styled from "styled-components";
+import axios from "axios";
 
 const SearchContainer = styled.input`
   width: 450px;
@@ -13,9 +15,27 @@ const SearchContainer = styled.input`
 `;
 
 const SearchBar = () => {
+  const [input, setInput] = useState("");
+
+  const handeInputValue = event => {
+    setInput(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    navigate(`/weather/${input.toLowerCase()}`);
+  };
+
   return (
     <>
-      <SearchContainer placeholder="Search city" />
+      <form onSubmit={handleSubmit}>
+        <SearchContainer
+          type="input"
+          placeholder="Search city"
+          value={input}
+          onChange={handeInputValue}
+        />
+      </form>
     </>
   );
 };
