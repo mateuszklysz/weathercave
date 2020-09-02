@@ -30,7 +30,6 @@ const Weather = props => {
       }`
     )
     .then(response => {
-      console.log("rrr");
       setResult(response.data);
     })
     .then(() => {
