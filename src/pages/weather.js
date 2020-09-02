@@ -31,7 +31,6 @@ const Weather = props => {
         }`
       )
       .then(response => {
-        console.log("test");
         setResult(response.data);
       })
       .then(() => {
@@ -48,7 +47,7 @@ const Weather = props => {
         <Logo />
         <Language />
         {ready ? <Info data={result} /> : null}
-        <Map data={result} />
+        {ready ? <Map data={result} /> : null}
       </StyledContainer>
     </>
   );
