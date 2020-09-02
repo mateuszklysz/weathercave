@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const StyledContainer = styled.section`
   position: absolute;
-  left: 200px;
-  top: 0;
+  left: 150px;
+  top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
