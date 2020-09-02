@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContainer = styled.section`
+  position: absolute;
+  right: 200px;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 250px;
   height: 100px;
 `;
 
@@ -17,11 +20,9 @@ const StyledLang = styled.p`
 
 const Language = () => {
   return (
-    <>
-      <StyledContainer>
-        <StyledLang>ENG</StyledLang>
-      </StyledContainer>
-    </>
+    <StyledContainer>
+      <StyledLang>ENG</StyledLang>
+    </StyledContainer>
   );
 };
 

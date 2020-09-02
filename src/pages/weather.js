@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import NavBar from "../components/NavBar/NavBar";
+import Logo from "../components/Logo/Logo";
+import Language from "../components/Language/Language";
 import Info from "../components/Info/Info";
 
 const StyledContainer = styled.main`
@@ -21,7 +22,8 @@ const Weather = props => {
   return (
     <>
       <StyledContainer>
-        <NavBar />
+        <Logo />
+        <Language />
         <Info data={inputData} />
       </StyledContainer>
     </>

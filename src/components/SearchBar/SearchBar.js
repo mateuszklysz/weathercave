@@ -26,16 +26,14 @@ const SearchBar = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <SearchContainer
-          type="input"
-          placeholder="Search city"
-          value={input}
-          onChange={handeInputValue}
-        />
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <SearchContainer
+        type="input"
+        placeholder="Search city"
+        value={input}
+        onChange={handeInputValue}
+      />
+    </form>
   );
 };
 

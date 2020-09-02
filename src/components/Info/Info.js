@@ -56,24 +56,20 @@ const Info = ({ data }) => {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, [data]);
   if (ready) {
     return (
-      <>
-        <StyledContainer>
-          <StyledText>
-            {moment().format("h:mma, dddd, MMMM D, YYYY")}
-          </StyledText>
-          <StyledLargeText>
-            {result.name}, {result.sys.country}
-          </StyledLargeText>
-          <StyledTemp>
-            <StyledLargeText>{Math.round(result.main.temp)}°C</StyledLargeText>
-            <StyledIcon />
-          </StyledTemp>
-          <StyledText>Wind speed - {result.wind.speed} m/s</StyledText>
-        </StyledContainer>
-      </>
+      <StyledContainer>
+        <StyledText>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledText>
+        <StyledLargeText>
+          {result.name}, {result.sys.country}
+        </StyledLargeText>
+        <StyledTemp>
+          <StyledLargeText>{Math.round(result.main.temp)}°C</StyledLargeText>
+          <StyledIcon />
+        </StyledTemp>
+        <StyledText>Wind speed - {result.wind.speed} m/s</StyledText>
+      </StyledContainer>
     );
   } else {
     return null;

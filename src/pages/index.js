@@ -20,7 +20,7 @@ const IndexPage = () => {
   return (
     <>
       <StyledContainer>
-        <StyledHeader>Check My Weather</StyledHeader>
+        <StyledHeader>Weathercave</StyledHeader>
         <SearchBar />
       </StyledContainer>
     </>
