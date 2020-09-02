@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Check My Weather`,
+    title: `WeatherCave`,
     description: `Get the current weather and other useful information for your cite`,
     date: `2020`,
     author: `@nickyy00`,
@@ -10,8 +10,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Check My Weather`,
-        short_name: `CMW`,
+        name: `WeatherCave`,
+        short_name: `WeatherCave`,
         start_url: `/`,
         background_color: `#121212`,
         theme_color: `#121212`,

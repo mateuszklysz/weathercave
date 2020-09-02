@@ -46,8 +46,12 @@ const Weather = props => {
       <StyledContainer>
         <Logo />
         <Language />
-        {ready ? <Info data={result} /> : null}
-        {ready ? <Map data={result} /> : null}
+        {ready ? (
+          <>
+            <Info data={result} />
+            <Map data={result} />
+          </>
+        ) : null}
       </StyledContainer>
     </>
   );
