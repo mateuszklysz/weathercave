@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import Logo from "../components/Logo/Logo";
 import Language from "../components/Language/Language";
 import Info from "../components/Info/Info";
+import Map from "../components/Map/Map";
 
 const StyledContainer = styled.main`
   display: flex;
@@ -18,13 +20,33 @@ const StyledContainer = styled.main`
 
 const Weather = props => {
   const inputData = props["*"].split("/");
+  const [ready, setReady] = useState(false);
+  const [result, setResult] = useState("");
+
+  axios
+    .get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${inputData[0].toLowerCase()}&units=metric&appid=${
+        process.env.GATSBY_WEATHER_API
+      }`
+    )
+    .then(response => {
+      console.log("rrr");
+      setResult(response.data);
+    })
+    .then(() => {
+      setReady(true);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 
   return (
     <>
       <StyledContainer>
         <Logo />
         <Language />
-        <Info data={inputData} />
+        {ready ? <Info data={result} /> : null}
+        <Map data={result} />
       </StyledContainer>
     </>
   );

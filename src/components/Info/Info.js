@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Icon from "../../assets/svg/cloud.svg";
 import moment from "moment";
-import axios from "axios";
 
 const StyledContainer = styled.section`
   display: flex;
@@ -38,42 +37,19 @@ const StyledTemp = styled.div`
 `;
 
 const Info = ({ data }) => {
-  const [ready, setReady] = useState(false);
-  const [result, setResult] = useState("");
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${data[0].toLowerCase()}&units=metric&appid=${
-          process.env.GATSBY_WEATHER_API
-        }`
-      )
-      .then(response => {
-        setResult(response.data);
-      })
-      .then(() => {
-        setReady(true);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, [data]);
-  if (ready) {
-    return (
-      <StyledContainer>
-        <StyledText>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledText>
-        <StyledLargeText>
-          {result.name}, {result.sys.country}
-        </StyledLargeText>
-        <StyledTemp>
-          <StyledLargeText>{Math.round(result.main.temp)}°C</StyledLargeText>
-          <StyledIcon />
-        </StyledTemp>
-        <StyledText>Wind speed - {result.wind.speed} m/s</StyledText>
-      </StyledContainer>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <StyledContainer>
+      <StyledText>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledText>
+      <StyledLargeText>
+        {data.name}, {data.sys.country}
+      </StyledLargeText>
+      <StyledTemp>
+        <StyledLargeText>{Math.round(data.main.temp)}°C</StyledLargeText>
+        <StyledIcon />
+      </StyledTemp>
+      <StyledText>Wind speed - {data.wind.speed} m/s</StyledText>
+    </StyledContainer>
+  );
 };
 
 export default Info;

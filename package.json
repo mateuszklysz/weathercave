@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "nickyy00 <nickyykontakt@outlook.com>",
   "dependencies": {
+    "@react-google-maps/api": "^1.9.12",
     "axios": "^0.20.0",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.50",
