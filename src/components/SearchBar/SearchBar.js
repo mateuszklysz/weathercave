@@ -13,7 +13,7 @@ const SearchContainer = styled.input`
   outline: none;
 `;
 
-const SearchBar = () => {
+const SearchBar = ({ setEnter }) => {
   const [input, setInput] = useState("");
 
   const handeInputValue = event => {
@@ -22,18 +22,23 @@ const SearchBar = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    navigate(`/weather/${input.toLowerCase()}`);
+    setEnter(false);
+    setTimeout(() => {
+      navigate(`/weather/${input.toLowerCase()}`);
+    }, 1000);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <SearchContainer
-        type="input"
-        placeholder="Search city"
-        value={input}
-        onChange={handeInputValue}
-      />
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <SearchContainer
+          type="input"
+          placeholder="Search city"
+          value={input}
+          onChange={handeInputValue}
+        />
+      </form>
+    </>
   );
 };
 
