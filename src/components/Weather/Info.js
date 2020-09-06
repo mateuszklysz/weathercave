@@ -24,7 +24,7 @@ const StyledCity = styled.p`
 
 const StyledTemp = styled.p`
   position: absolute;
-  left: 0;
+  left: 5px;
   top: 120px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
@@ -34,7 +34,7 @@ const StyledTemp = styled.p`
 
 const StyledSmallTemp = styled.p`
   position: absolute;
-  left: 90px;
+  left: 95px;
   top: 135px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
