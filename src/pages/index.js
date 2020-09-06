@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import styled from "styled-components";
 import SearchBar from "../components/SearchBar/SearchBar";
+import Shape from "../components/Shape/Shape";
 
 const StyledContainer = styled.section`
   opacity: 0;
@@ -37,10 +38,36 @@ const IndexPage = () => {
     }
   }, [enter]);
   return (
-    <StyledContainer ref={containerRef}>
-      <StyledHeader>Weathercave</StyledHeader>
-      <SearchBar setEnter={setEnter} />
-    </StyledContainer>
+    <>
+      <StyledContainer ref={containerRef}>
+        <StyledHeader>Weathercave</StyledHeader>
+        <SearchBar setEnter={setEnter} />
+      </StyledContainer>
+      <Shape
+        width="65%"
+        height="65%"
+        bottom="0"
+        left="0"
+        opacity="20%"
+        blue={false}
+      />
+      <Shape
+        width="50%"
+        height="20%"
+        top="0"
+        left="40%"
+        opacity="20%"
+        blue={false}
+      />
+      <Shape
+        width="10%"
+        height="40%"
+        bottom="0"
+        right="0"
+        opacity="30%"
+        blue={false}
+      />
+    </>
   );
 };
 

@@ -9,9 +9,10 @@ const theme = {
   },
   size: {
     s: "18px",
-    xm: "36px",
     m: "24px",
+    xm: "36px",
     l: "48px",
+    xl: "72px",
   },
 };
 export default theme;
