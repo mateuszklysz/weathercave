@@ -30,6 +30,7 @@ const Map = ({ data }) => {
       {...mapSettings}
       {...viewport}
       onViewportChange={viewport => setViewport(viewport)}
+      style={{ zIndex: 10 }}
     ></ReactMapGL>
   );
 };

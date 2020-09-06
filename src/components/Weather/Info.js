@@ -4,6 +4,7 @@ import Icon from "../../assets/svg/cloud.svg";
 import moment from "moment";
 
 const StyledContainer = styled.section`
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
