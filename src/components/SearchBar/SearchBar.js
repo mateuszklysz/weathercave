@@ -22,7 +22,9 @@ const SearchBar = ({ setEnter }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    setEnter(false);
+    if (setEnter) {
+      setEnter(false);
+    }
     setTimeout(() => {
       navigate(`/weather/${input.toLowerCase()}`);
     }, 1000);

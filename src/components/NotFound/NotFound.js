@@ -2,28 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledContainer = styled.section`
-  position: absolute;
-  right: 150px;
-  top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 100px;
+  width: 100vw;
+  height: 100vh;
 `;
 
-const StyledLang = styled.p`
+const StyledText = styled.h1`
   color: ${({ theme: { color } }) => color.white};
-  font-size: ${({ theme: { size } }) => size.m};
-  font-weight: bold;
+  font-size: ${({ theme: { size } }) => size.l};
 `;
 
-const Language = () => {
+const NotFound = () => {
   return (
     <StyledContainer>
-      <StyledLang>ENG</StyledLang>
+      <StyledText>Not Found...</StyledText>
     </StyledContainer>
   );
 };
 
-export default Language;
+export default NotFound;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMapGL from "react-map-gl";
 
 const mapSettings = {
@@ -15,6 +15,15 @@ const Map = ({ data }) => {
     zoom: 11,
     pitch: 55.0,
   });
+
+  useEffect(() => {
+    setViewport({
+      latitude: data.coord.lat,
+      longitude: data.coord.lon,
+      zoom: 11,
+      pitch: 55.0,
+    });
+  }, [data]);
 
   return (
     <ReactMapGL
