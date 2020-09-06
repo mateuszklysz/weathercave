@@ -3,8 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import gsap from "gsap";
 import NavBar from "../components/NavBar/NavBar";
-import Info from "../components/Weather/Info";
-import Map from "../components/Weather/Map";
+import WeatherComponent from "../components/Weather/WeatherComponent";
 import NotFound from "../components/NotFound/NotFound";
 import Shape from "../components/Shape/Shape";
 
@@ -74,14 +73,7 @@ const Weather = props => {
     <>
       <StyledContainer ref={containerRef}>
         <NavBar />
-        {found ? (
-          <>
-            <Info data={result} />
-            <Map data={result} />
-          </>
-        ) : (
-          <NotFound />
-        )}
+        {found ? <WeatherComponent data={result} /> : <NotFound />}
       </StyledContainer>
       <div className="shapesContainer">
         <Shape
