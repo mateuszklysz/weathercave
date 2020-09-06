@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Icon from "../../assets/svg/cloud.svg";
 import moment from "moment";
 
 const StyledDate = styled.p`
