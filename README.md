@@ -1,3 +1,3 @@
-## Check my weather - CMW
+## WeatherCave
 
-Get the current weather and other useful information for your city
+Get the current weather and other useful information for your city.
