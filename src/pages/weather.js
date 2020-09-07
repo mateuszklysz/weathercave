@@ -24,28 +24,31 @@ const Weather = props => {
   const inputData = props["*"].split("/");
   const [found, setFound] = useState(false);
   const [result, setResult] = useState("");
+  const wrapperRef = useRef(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (found) {
-      const tl = gsap.timeline();
-      tl.fromTo(
-        [containerRef.current, ".shapesContainer"],
-        { autoAlpha: 0 },
-        { autoAlpha: 1, duration: 2, stagger: 2, ease: "Power1.easeInOut" }
-      ).fromTo(
-        ".shapesContainer div",
-        { x: -50 },
-        { x: 0, duration: 3, stagger: 0.1, ease: "Power1.easeInOut" }
-      );
-    }
+    gsap.fromTo(
+      wrapperRef.current,
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 3, ease: "Power1.easeInOut" }
+    );
+  }, []);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      ".shapesContainer",
+      { autoAlpha: 0 },
+      { autoAlpha: 1, duration: 2, stagger: 2, ease: "Power1.easeInOut" }
+    ).fromTo(
+      ".shapesContainer div",
+      { x: -50 },
+      { x: 0, duration: 3, stagger: 0.1, ease: "Power1.easeInOut" }
+    );
   }, [found]);
 
   useEffect(() => {
-    if (found) {
-      gsap.to(containerRef.current.children[1], { y: 15, autoAlpha: 0 });
-    }
-
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${inputData[0].toLowerCase()}&units=metric&appid=${
@@ -57,7 +60,19 @@ const Weather = props => {
       })
       .then(() => {
         setFound(true);
-        gsap.to(containerRef.current.children, {
+        const tl = gsap.timeline();
+        tl.fromTo(
+          containerRef.current.children[1],
+          {
+            y: 0,
+            autoAlpha: 1,
+          },
+          {
+            y: 15,
+            autoAlpha: 1,
+            duration: 0.2,
+          }
+        ).to(containerRef.current.children, {
           y: 0,
           autoAlpha: 1,
         });
@@ -81,7 +96,7 @@ const Weather = props => {
 
   if (found) {
     return (
-      <>
+      <div ref={wrapperRef} style={{ opacity: 0 }}>
         <StyledContainer ref={containerRef}>
           <NavBar />
           <WeatherComponent data={result} />
@@ -144,14 +159,16 @@ const Weather = props => {
             blue={true}
           />
         </div>
-      </>
+      </div>
     );
   } else {
     return (
-      <StyledContainer ref={containerRef}>
-        <NavBar />
-        <NotFound />
-      </StyledContainer>
+      <div ref={wrapperRef} style={{ opacity: 0 }}>
+        <StyledContainer ref={containerRef}>
+          <NavBar />
+          <NotFound />
+        </StyledContainer>
+      </div>
     );
   }
 };

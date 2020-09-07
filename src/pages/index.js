@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar/SearchBar";
 import Shape from "../components/Shape/Shape";
 
 const StyledContainer = styled.section`
-  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,25 +20,27 @@ const StyledHeader = styled.h1`
 
 const IndexPage = () => {
   const [enter, setEnter] = useState(true);
-  const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
+
   useEffect(() => {
     if (enter) {
       gsap.fromTo(
-        containerRef.current,
+        wrapperRef.current,
         { y: -50, autoAlpha: 0 },
         { y: 0, autoAlpha: 1, duration: 1 }
       );
     } else {
       gsap.fromTo(
-        containerRef.current,
+        wrapperRef.current,
         { y: 0, autoAlpha: 1 },
         { y: 50, autoAlpha: 0, duration: 1 }
       );
     }
   }, [enter]);
+
   return (
-    <>
-      <StyledContainer ref={containerRef}>
+    <div ref={wrapperRef} style={{ opacity: 0 }}>
+      <StyledContainer>
         <StyledHeader>Weathercave</StyledHeader>
         <SearchBar setEnter={setEnter} />
       </StyledContainer>
@@ -67,7 +68,7 @@ const IndexPage = () => {
         opacity="30%"
         blue={false}
       />
-    </>
+    </div>
   );
 };
 
