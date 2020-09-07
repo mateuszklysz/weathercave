@@ -10,9 +10,14 @@ const StyledContainer = styled.div`
   width: 500px;
   height: 300px;
   ${media.tablet`
-    right: 50%;
-    bottom: 40px;
-    transform:translate(50%,0);
+    position: static;
+  `}
+  ${media.phone`
+    width: 320px;
+    height: 200px;
+  `}
+  ${media.ip4`
+    width: 300px;
   `}
 `;
 

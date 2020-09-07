@@ -12,11 +12,16 @@ const StyledContainer = styled.section`
   ${media.tablet`
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
-    width: 600px;
-    height: 650px;
-    bottom: 50px;
+    height: 100vh;
+    margin-bottom:120px;
+  `}
+  ${media.phone`
+    width: 320px;
+  `}
+  ${media.ip4`
+    width: 300px;
   `}
 `;
 

@@ -8,6 +8,7 @@ const theme = {
     black: "#121212",
   },
   size: {
+    ss: "16px",
     s: "18px",
     m: "24px",
     xm: "36px",

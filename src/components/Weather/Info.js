@@ -10,6 +10,7 @@ const StyledDate = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  text-align: center;
   ${media.tablet`
     position: static;
   `}
@@ -23,7 +24,7 @@ const StyledCity = styled.p`
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.l};
   ${media.tablet`
-  margin-top: 10px;
+    margin-top: 10px;
     position: static;
   `}
 `;
@@ -72,30 +73,60 @@ const StyledContainer = styled.div`
     position: static;
     width: 200px;
   `}
+  ${media.phone`
+    width: 106.666666667px;
+  `}
+  ${media.ip4`
+    width: 100px;
+  `}
 `;
 
 const StyledWind = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const StyledWindValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const StyledPressure = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const StyledPressureValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const StyledHumidity = styled.p`
@@ -105,12 +136,24 @@ const StyledHumidity = styled.p`
   ${media.tablet`
     font-size: ${({ theme: { size } }) => size.m};
   `}
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const StyledHumidityValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.s};
+  `}
+  ${media.ip4`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
 `;
 
 const Info = ({ data }) => {
