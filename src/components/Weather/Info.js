@@ -54,7 +54,7 @@ const StyledSmallTemp = styled.p`
 `;
 
 const StyledDataContainer = styled.div`
-  margin-top: 20px;
+  margin: 20px 0;
   display: flex;
 `;
 
@@ -68,7 +68,6 @@ const StyledContainer = styled.div`
   justify-content: row;
   align-items: center;
   width: 170px;
-  height: 60px;
   ${media.tablet`
     position: static;
     width: 200px;

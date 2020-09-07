@@ -15,13 +15,14 @@ const StyledContainer = styled.section`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin-bottom:120px;
+    margin-bottom: 120px;
   `}
   ${media.phone`
     width: 320px;
   `}
   ${media.ip4`
     width: 300px;
+    margin-bottom: 100px;
   `}
 `;
 

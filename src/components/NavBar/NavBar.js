@@ -19,6 +19,10 @@ const StyledContainer = styled.section`
     height: 120px;
     top: calc(100% - 120px);
   `}
+  ${media.ip4`
+    height: 100px;
+    top: calc(100% - 100px);
+  `}
 `;
 
 const NavBar = () => {

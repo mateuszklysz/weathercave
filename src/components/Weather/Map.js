@@ -18,6 +18,7 @@ const StyledContainer = styled.div`
   `}
   ${media.ip4`
     width: 300px;
+    height: 150px;
   `}
 `;
 
