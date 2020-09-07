@@ -32,6 +32,7 @@ const SearchBar = ({ setEnter }) => {
     if (setEnter) {
       setEnter(false);
     }
+    setInput("");
     setTimeout(() => {
       navigate(`/weather/${input.toLowerCase()}`);
     }, 1000);

@@ -6,7 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Language from "./Language";
 
 const StyledContainer = styled.section`
-  z-index: 100;
+  z-index: 1000;
   position: fixed;
   left: 0;
   top: 0;
