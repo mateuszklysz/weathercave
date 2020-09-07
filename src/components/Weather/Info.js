@@ -84,29 +84,42 @@ const StyledPressureValue = styled.p`
   line-height: 33px;
 `;
 
+const StyledHumidity = styled.p`
+  color: ${({ theme: { color } }) => color.white};
+  font-weight: bold;
+  font-size: ${({ theme: { size } }) => size.xm};
+  line-height: 33px;
+`;
+
+const StyledHumidityValue = styled.p`
+  color: ${({ theme: { color } }) => color.white};
+  font-weight: bold;
+  font-size: ${({ theme: { size } }) => size.m};
+  line-height: 33px;
+`;
+
 const Info = ({ data }) => {
   return (
     <>
-      <StyledDate>{moment().format("h:mm a, dddd, MMMM D, YYYY")}</StyledDate>
+      <StyledDate>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledDate>
       <StyledCity>
         {data.name}, {data.sys.country}
       </StyledCity>
-
       <StyledTemp>{Math.round(data.main.temp)}°</StyledTemp>
       <StyledSmallTemp>
         {Math.round(data.main.temp_min)}° - {Math.round(data.main.temp_max)}°
       </StyledSmallTemp>
-      <StyledContainer top="190px">
+      <StyledContainer top="200px">
         <StyledWind>Wind speed</StyledWind>
         <StyledWindValue>{data.wind.speed} m/s</StyledWindValue>
       </StyledContainer>
-      <StyledContainer top="270px">
+      <StyledContainer top="280px">
         <StyledPressure>Pressure</StyledPressure>
         <StyledPressureValue>{data.main.pressure} hPa</StyledPressureValue>
       </StyledContainer>
       <StyledContainer top="20px" right="50px">
-        <StyledPressure>Humidity</StyledPressure>
-        <StyledPressureValue>{data.main.humidity}%</StyledPressureValue>
+        <StyledHumidity>Humidity</StyledHumidity>
+        <StyledHumidityValue>{data.main.humidity}%</StyledHumidityValue>
       </StyledContainer>
     </>
   );
