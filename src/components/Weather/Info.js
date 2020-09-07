@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
+import media from "../../utils/media";
 
 const StyledDate = styled.p`
   position: absolute;
@@ -9,37 +10,51 @@ const StyledDate = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
+  ${media.tablet`
+    position: static;
+  `}
 `;
 
 const StyledCity = styled.p`
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 40px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.l};
-  line-height: 33px;
+  ${media.tablet`
+  margin-top: 10px;
+    position: static;
+  `}
 `;
 
 const StyledTemp = styled.p`
   position: absolute;
   left: 5px;
-  top: 120px;
+  top: 110px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.xl};
-  line-height: 33px;
+  ${media.tablet`
+    position: static;
+  `}
 `;
 
 const StyledSmallTemp = styled.p`
   position: absolute;
   left: 95px;
-  top: 135px;
+  top: 155px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.s};
-  line-height: 33px;
+  ${media.tablet`
+    position: static;
+  `}
+`;
+
+const StyledDataContainer = styled.div`
+  margin-top: 20px;
+  display: flex;
 `;
 
 const StyledContainer = styled.div`
@@ -49,53 +64,53 @@ const StyledContainer = styled.div`
   top: ${({ top }) => top};
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: row;
   align-items: center;
   width: 170px;
   height: 60px;
-  /* background-color: green; */
+  ${media.tablet`
+    position: static;
+    width: 200px;
+  `}
 `;
 
 const StyledWind = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
 `;
 
 const StyledWindValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
 `;
 
 const StyledPressure = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
 `;
 
 const StyledPressureValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
 `;
 
 const StyledHumidity = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.xm};
-  line-height: 33px;
+  ${media.tablet`
+    font-size: ${({ theme: { size } }) => size.m};
+  `}
 `;
 
 const StyledHumidityValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  line-height: 33px;
 `;
 
 const Info = ({ data }) => {
@@ -109,18 +124,20 @@ const Info = ({ data }) => {
       <StyledSmallTemp>
         {Math.round(data.main.temp_min)}° - {Math.round(data.main.temp_max)}°
       </StyledSmallTemp>
-      <StyledContainer top="200px">
-        <StyledWind>Wind speed</StyledWind>
-        <StyledWindValue>{data.wind.speed} m/s</StyledWindValue>
-      </StyledContainer>
-      <StyledContainer top="280px">
-        <StyledPressure>Pressure</StyledPressure>
-        <StyledPressureValue>{data.main.pressure} hPa</StyledPressureValue>
-      </StyledContainer>
-      <StyledContainer top="20px" right="50px">
-        <StyledHumidity>Humidity</StyledHumidity>
-        <StyledHumidityValue>{data.main.humidity}%</StyledHumidityValue>
-      </StyledContainer>
+      <StyledDataContainer>
+        <StyledContainer top="200px">
+          <StyledWind>Wind speed</StyledWind>
+          <StyledWindValue>{data.wind.speed} m/s</StyledWindValue>
+        </StyledContainer>
+        <StyledContainer top="280px">
+          <StyledPressure>Pressure</StyledPressure>
+          <StyledPressureValue>{data.main.pressure} hPa</StyledPressureValue>
+        </StyledContainer>
+        <StyledContainer top="20px" right="50px">
+          <StyledHumidity>Humidity</StyledHumidity>
+          <StyledHumidityValue>{data.main.humidity}%</StyledHumidityValue>
+        </StyledContainer>
+      </StyledDataContainer>
     </>
   );
 };

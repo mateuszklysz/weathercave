@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReactMapGL from "react-map-gl";
+import media from "../../utils/media";
 
 const StyledContainer = styled.div`
   position: absolute;
   right: 0;
-  bottom: 0px;
+  bottom: 0;
+  width: 500px;
+  height: 300px;
+  ${media.tablet`
+    right: 50%;
+    bottom: 40px;
+    transform:translate(50%,0);
+  `}
 `;
 
 const mapSettings = {
   mapboxApiAccessToken: process.env.GATSBY_MAPS_API,
   mapStyle: "mapbox://styles/nickyy00/ckemjqtdj1cje19o2e2t60ry6",
-  width: "500px",
-  height: "300px",
+  width: "100%",
+  height: "100%",
 };
 
 const Map = ({ data }) => {

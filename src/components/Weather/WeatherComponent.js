@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import media from "../../utils/media";
 import Info from "./Info";
 import Map from "./Map";
 
@@ -8,7 +9,15 @@ const StyledContainer = styled.section`
   position: relative;
   width: 700px;
   height: 400px;
-  /* background-color: red; */
+  ${media.tablet`
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 600px;
+    height: 650px;
+    bottom: 50px;
+  `}
 `;
 
 const WeatherComponent = ({ data }) => {
