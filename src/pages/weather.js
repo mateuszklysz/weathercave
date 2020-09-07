@@ -65,7 +65,7 @@ const Weather = props => {
           containerRef.current.children[1],
           {
             y: 0,
-            autoAlpha: 1,
+            autoAlpha: 0,
           },
           {
             y: 15,
@@ -74,7 +74,6 @@ const Weather = props => {
           }
         ).to(containerRef.current.children, {
           y: 0,
-          autoAlpha: 1,
         });
       })
       .catch(() => {

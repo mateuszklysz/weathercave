@@ -26,14 +26,14 @@ const IndexPage = () => {
     if (enter) {
       gsap.fromTo(
         wrapperRef.current,
-        { y: -50, autoAlpha: 0 },
-        { y: 0, autoAlpha: 1, duration: 1 }
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 1 }
       );
     } else {
       gsap.fromTo(
         wrapperRef.current,
-        { y: 0, autoAlpha: 1 },
-        { y: 50, autoAlpha: 0, duration: 1 }
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 1 }
       );
     }
   }, [enter]);

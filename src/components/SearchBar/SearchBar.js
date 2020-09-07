@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
+import media from "../../utils/media";
 
 const SearchContainer = styled.input`
   width: 450px;
@@ -11,6 +12,12 @@ const SearchContainer = styled.input`
   font-size: ${({ theme: { size } }) => size.s};
   text-align: center;
   outline: none;
+  ${media.phone`
+  width: 350px;
+  `}
+  ${media.ip4`
+  width: 300px;
+  `}
 `;
 
 const SearchBar = ({ setEnter }) => {

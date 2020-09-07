@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import media from "../../utils/media";
 import Logo from "./Logo";
 import SearchBar from "../SearchBar/SearchBar";
 import Language from "./Language";
@@ -14,6 +15,10 @@ const StyledContainer = styled.section`
   align-items: center;
   width: 100%;
   height: 100px;
+  ${media.tablet`
+    height: 120px;
+    top: calc(100% - 120px);
+  `}
 `;
 
 const NavBar = () => {
