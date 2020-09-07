@@ -9,6 +9,9 @@ const StyledContainer = styled.section`
   display: flex;
   flex-direction: column;
   width: 500px;
+  ${media.tablet`
+    margin-bottom:100px;
+  `}
   ${media.phone`
     width: 300px;
   `}
