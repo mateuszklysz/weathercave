@@ -1,110 +1,80 @@
 import React from "react";
 import styled from "styled-components";
 import moment from "moment";
+import Wind from "../../assets/svg/wind.svg";
+import Pressure from "../../assets/svg/pressure.svg";
+import Humidity from "../../assets/svg/humidity.svg";
 import media from "../../utils/media";
 
-const StyledDate = styled.p`
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: ${({ theme: { color } }) => color.white};
-  font-weight: bold;
-  font-size: ${({ theme: { size } }) => size.m};
-  text-align: center;
-  ${media.tablet`
-    position: static;
+const FlexRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
+  ${media.phone`
+    height: 60px;
   `}
 `;
 
-const StyledCity = styled.p`
-  position: absolute;
-  left: 0;
-  top: 40px;
+const StyledDate = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
+  font-size: ${({ theme: { size } }) => size.s};
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.ss};
+  `}
+`;
+
+const StyledCity = styled.div`
+  color: ${({ theme: { color } }) => color.white};
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 90px;
+  text-overflow: ellipsis;
   font-size: ${({ theme: { size } }) => size.l};
-  ${media.tablet`
-    margin-top: 10px;
-    position: static;
+  width: 350px;
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.xm};
+    line-height: 60px;
   `}
 `;
 
 const StyledTemp = styled.p`
-  position: absolute;
-  left: 5px;
-  top: 110px;
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
+  width: 120px;
+  line-height: 90px;
+  text-align: center;
   font-size: ${({ theme: { size } }) => size.xl};
-  ${media.tablet`
-    position: static;
-  `}
-`;
-
-const StyledSmallTemp = styled.p`
-  position: absolute;
-  left: 95px;
-  top: 155px;
-  color: ${({ theme: { color } }) => color.white};
-  font-weight: bold;
-  font-size: ${({ theme: { size } }) => size.s};
-  ${media.tablet`
-    position: static;
+  ${media.phone`
+    font-size: ${({ theme: { size } }) => size.xm};
+    line-height: 60px;
   `}
 `;
 
 const StyledDataContainer = styled.div`
-  margin: 20px 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 
 const StyledContainer = styled.div`
-  position: absolute;
-  left: ${({ left }) => (left ? left : null)};
-  right: ${({ right }) => (right ? right : null)};
-  top: ${({ top }) => top};
   display: flex;
-  flex-direction: column;
-  justify-content: row;
   align-items: center;
-  width: 170px;
-  ${media.tablet`
-    position: static;
-    width: 200px;
-  `}
-  ${media.phone`
-    width: 106.666666667px;
-  `}
-  ${media.ip4`
-    width: 100px;
-  `}
 `;
 
-const StyledWind = styled.p`
-  color: ${({ theme: { color } }) => color.white};
-  font-weight: bold;
-  font-size: ${({ theme: { size } }) => size.m};
-  ${media.phone`
-    font-size: ${({ theme: { size } }) => size.s};
+const StyledIcon = styled.div`
+  & > svg {
+    padding-right: 5px;
+    width: 40px;
+    ${media.phone`
+    width:30px;
   `}
-  ${media.ip4`
-    font-size: ${({ theme: { size } }) => size.ss};
-  `}
+  }
 `;
 
 const StyledWindValue = styled.p`
-  color: ${({ theme: { color } }) => color.white};
-  font-weight: bold;
-  font-size: ${({ theme: { size } }) => size.m};
-  ${media.phone`
-    font-size: ${({ theme: { size } }) => size.s};
-  `}
-  ${media.ip4`
-    font-size: ${({ theme: { size } }) => size.ss};
-  `}
-`;
-
-const StyledPressure = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
@@ -120,21 +90,6 @@ const StyledPressureValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
-  ${media.phone`
-    font-size: ${({ theme: { size } }) => size.s};
-  `}
-  ${media.ip4`
-    font-size: ${({ theme: { size } }) => size.ss};
-  `}
-`;
-
-const StyledHumidity = styled.p`
-  color: ${({ theme: { color } }) => color.white};
-  font-weight: bold;
-  font-size: ${({ theme: { size } }) => size.xm};
-  ${media.tablet`
-    font-size: ${({ theme: { size } }) => size.m};
-  `}
   ${media.phone`
     font-size: ${({ theme: { size } }) => size.s};
   `}
@@ -159,24 +114,29 @@ const Info = ({ data }) => {
   return (
     <>
       <StyledDate>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledDate>
-      <StyledCity>
-        {data.name}, {data.sys.country}
-      </StyledCity>
-      <StyledTemp>{Math.round(data.main.temp)}°</StyledTemp>
-      <StyledSmallTemp>
-        {Math.round(data.main.temp_min)}° - {Math.round(data.main.temp_max)}°
-      </StyledSmallTemp>
+      <FlexRow>
+        <StyledCity>
+          {data.name}, {data.sys.country}
+        </StyledCity>
+        <StyledTemp>{Math.round(data.main.temp)}°</StyledTemp>
+      </FlexRow>
       <StyledDataContainer>
-        <StyledContainer top="200px">
-          <StyledWind>Wind speed</StyledWind>
+        <StyledContainer>
+          <StyledIcon>
+            <Wind />
+          </StyledIcon>
           <StyledWindValue>{data.wind.speed} m/s</StyledWindValue>
         </StyledContainer>
-        <StyledContainer top="280px">
-          <StyledPressure>Pressure</StyledPressure>
+        <StyledContainer>
+          <StyledIcon>
+            <Pressure />
+          </StyledIcon>
           <StyledPressureValue>{data.main.pressure} hPa</StyledPressureValue>
         </StyledContainer>
-        <StyledContainer top="20px" right="50px">
-          <StyledHumidity>Humidity</StyledHumidity>
+        <StyledContainer>
+          <StyledIcon>
+            <Humidity />
+          </StyledIcon>
           <StyledHumidityValue>{data.main.humidity}%</StyledHumidityValue>
         </StyledContainer>
       </StyledDataContainer>

@@ -5,24 +5,12 @@ import Info from "./Info";
 import Map from "./Map";
 
 const StyledContainer = styled.section`
-  z-index: 10;
-  position: relative;
-  width: 700px;
-  height: 400px;
-  ${media.tablet`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-bottom: 120px;
-  `}
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
   ${media.phone`
-    width: 320px;
-  `}
-  ${media.ip4`
     width: 300px;
-    margin-bottom: 100px;
   `}
 `;
 

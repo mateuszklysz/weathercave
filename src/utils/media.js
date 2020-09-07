@@ -7,7 +7,7 @@ const sizes = {
   laptop: 1120,
   tablet: 1024,
   phone: 600,
-  ip4: 360,
+  ip4: 380,
 };
 export default Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`

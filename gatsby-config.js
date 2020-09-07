@@ -35,5 +35,6 @@ module.exports = {
         component: require.resolve(`./src/layouts/layout.js`),
       },
     },
+    `gatsby-plugin-react-svg`,
   ],
 };

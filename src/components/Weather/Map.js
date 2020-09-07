@@ -4,21 +4,11 @@ import ReactMapGL from "react-map-gl";
 import media from "../../utils/media";
 
 const StyledContainer = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0;
   width: 500px;
   height: 300px;
-  ${media.tablet`
-    position: static;
-  `}
   ${media.phone`
-    width: 320px;
-    height: 200px;
-  `}
-  ${media.ip4`
     width: 300px;
-    height: 150px;
+    height: 200px;
   `}
 `;
 
