@@ -15,24 +15,10 @@ const StyledLargeLogo = styled(Link)`
   `}
 `;
 
-const StyledSmallLogo = styled(Link)`
-  display: none;
-  width: 250px;
-  text-align: center;
-  color: ${({ theme: { color } }) => color.white};
-  font-size: ${({ theme: { size } }) => size.m};
-  font-weight: bold;
-  text-decoration: none;
-  ${media.tablet`
-    display: block;
-  `}
-`;
-
 const Logo = () => {
   return (
     <>
       <StyledLargeLogo to="/">Weathercave</StyledLargeLogo>
-      <StyledSmallLogo to="/">WC</StyledSmallLogo>
     </>
   );
 };

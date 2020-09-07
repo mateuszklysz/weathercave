@@ -9,7 +9,7 @@ const StyledLang = styled.p`
   font-size: ${({ theme: { size } }) => size.m};
   font-weight: bold;
   ${media.tablet`
-  display:none;
+    display:none;
   `}
 `;
 

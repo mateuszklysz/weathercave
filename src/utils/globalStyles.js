@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
        padding: 0;
        font-family: "Open-Sans", "Helvetica", "Sans-Serif";
        background-color: ${({ theme: { color } }) => color.white};
+       overflow: hidden;
     }
     body::-webkit-scrollbar {
        width: 0.5em;

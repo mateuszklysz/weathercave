@@ -12,14 +12,11 @@ const SearchContainer = styled.input`
   font-size: ${({ theme: { size } }) => size.s};
   text-align: center;
   outline: none;
-  ${media.desktopS`
-    width: 350px;
-  `}
   ${media.phone`
-    width: 220px;
+    width: 320px;
   `}
   ${media.ip4`
-    width: 150px;
+    width: 250px;
   `}
 `;
 
