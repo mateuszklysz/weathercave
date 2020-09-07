@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import moment from "moment";
+import { format } from "date-fns";
 import Wind from "../../assets/svg/wind.svg";
 import Pressure from "../../assets/svg/pressure.svg";
 import Humidity from "../../assets/svg/humidity.svg";
@@ -69,8 +69,8 @@ const StyledIcon = styled.div`
     padding-right: 5px;
     width: 40px;
     ${media.phone`
-    width:30px;
-  `}
+      width:30px;
+    `}
   }
 `;
 
@@ -113,7 +113,9 @@ const StyledHumidityValue = styled.p`
 const Info = ({ data }) => {
   return (
     <>
-      <StyledDate>{moment().format("h:mma, dddd, MMMM D, YYYY")}</StyledDate>
+      <StyledDate>
+        {format(new Date(), "HH:mmaaaa iiii, MMMM d, yyyy")}
+      </StyledDate>
       <FlexRow>
         <StyledCity>
           {data.name}, {data.sys.country}
