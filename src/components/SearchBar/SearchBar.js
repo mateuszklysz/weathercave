@@ -10,6 +10,7 @@ const SearchContainer = styled.input`
   border-radius: 25px;
   background-color: ${({ theme: { color } }) => color.dark};
   font-size: ${({ theme: { size } }) => size.s};
+  -webkit-user-select: text;
   text-align: center;
   outline: none;
   ${media.phone`

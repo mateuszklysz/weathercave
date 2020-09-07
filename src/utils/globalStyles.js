@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
        font-family: "Open-Sans", "Helvetica", "Sans-Serif";
        background-color: ${({ theme: { color } }) => color.white};
        overflow: hidden;
+       overscroll-behavior: none;
     }
     body::-webkit-scrollbar {
        width: 0.5em;
