@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import media from "../../utils/media";
 import { Link } from "gatsby";
 
-const StyledLargeLogo = styled(Link)`
+export const StyledLogo = styled(Link)`
   width: 250px;
   text-align: center;
   color: ${({ theme: { color } }) => color.white};
@@ -14,13 +13,3 @@ const StyledLargeLogo = styled(Link)`
     display: none;
   `}
 `;
-
-const Logo = () => {
-  return (
-    <>
-      <StyledLargeLogo to="/">Weathercave</StyledLargeLogo>
-    </>
-  );
-};
-
-export default Logo;

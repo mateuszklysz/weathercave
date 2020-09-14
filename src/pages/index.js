@@ -1,22 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import styled from "styled-components";
+import { Container, Header } from "../styles/index.styles";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Shape from "../components/Shape/Shape";
-
-const StyledContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 90vh;
-`;
-
-const StyledHeader = styled.h1`
-  font-size: ${({ theme: { size } }) => size.l};
-  margin-bottom: 10px;
-`;
 
 const IndexPage = () => {
   const [enter, setEnter] = useState(true);
@@ -40,10 +26,10 @@ const IndexPage = () => {
 
   return (
     <div ref={wrapperRef} style={{ opacity: 0 }}>
-      <StyledContainer>
-        <StyledHeader>Weathercave</StyledHeader>
+      <Container>
+        <Header>Weathercave</Header>
         <SearchBar setEnter={setEnter} />
-      </StyledContainer>
+      </Container>
       <Shape
         width="65%"
         height="65%"

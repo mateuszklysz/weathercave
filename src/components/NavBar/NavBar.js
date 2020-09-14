@@ -1,37 +1,16 @@
 import React from "react";
-import styled from "styled-components";
-import media from "../../utils/media";
-import Logo from "./Logo";
+import { Container } from "./NavBar.styles";
+import Logo from "../Logo/Logo";
 import SearchBar from "../SearchBar/SearchBar";
-import Language from "./Language";
-
-const StyledContainer = styled.section`
-  z-index: 1000;
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100px;
-  ${media.tablet`
-    height: 120px;
-    top: calc(100% - 120px);
-  `}
-  ${media.ip4`
-    height: 100px;
-    top: calc(100% - 100px);
-  `}
-`;
+import Language from "../Language/Language";
 
 const NavBar = () => {
   return (
-    <StyledContainer>
+    <Container>
       <Logo />
       <SearchBar />
       <Language />
-    </StyledContainer>
+    </Container>
   );
 };
 

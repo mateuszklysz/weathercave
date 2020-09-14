@@ -1,13 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledText = styled.h1`
-  color: ${({ theme: { color } }) => color.white};
-  font-size: ${({ theme: { size } }) => size.l};
-`;
+import { Text } from "./NotFound.styles";
 
 const NotFound = () => {
-  return <StyledText>Not Found...</StyledText>;
+  return <Text>Not Found...</Text>;
 };
 
 export default NotFound;

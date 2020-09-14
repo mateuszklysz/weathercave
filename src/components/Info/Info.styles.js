@@ -1,12 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import { format } from "date-fns";
-import Wind from "../../assets/svg/wind.svg";
-import Pressure from "../../assets/svg/pressure.svg";
-import Humidity from "../../assets/svg/humidity.svg";
 import media from "../../utils/media";
 
-const FlexRow = styled.div`
+export const FlexRow = styled.div`
   display: flex;
   justify-content: space-between;
   height: 90px;
@@ -15,7 +10,7 @@ const FlexRow = styled.div`
   `}
 `;
 
-const StyledDate = styled.p`
+export const StyledDate = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.s};
@@ -24,7 +19,7 @@ const StyledDate = styled.p`
   `}
 `;
 
-const StyledCity = styled.div`
+export const City = styled.div`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   white-space: nowrap;
@@ -39,10 +34,10 @@ const StyledCity = styled.div`
   `}
 `;
 
-const StyledTemp = styled.p`
+export const Temp = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
-  width: 120px;
+  flex-grow: 1;
   line-height: 90px;
   text-align: center;
   font-size: ${({ theme: { size } }) => size.xl};
@@ -52,19 +47,19 @@ const StyledTemp = styled.p`
   `}
 `;
 
-const StyledDataContainer = styled.div`
+export const DataContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 `;
 
-const StyledContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const StyledIcon = styled.div`
+export const Icon = styled.div`
   & > svg {
     padding-right: 5px;
     width: 40px;
@@ -74,7 +69,7 @@ const StyledIcon = styled.div`
   }
 `;
 
-const StyledWindValue = styled.p`
+export const WindValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
@@ -86,7 +81,7 @@ const StyledWindValue = styled.p`
   `}
 `;
 
-const StyledPressureValue = styled.p`
+export const PressureValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
@@ -98,7 +93,7 @@ const StyledPressureValue = styled.p`
   `}
 `;
 
-const StyledHumidityValue = styled.p`
+export const HumidityValue = styled.p`
   color: ${({ theme: { color } }) => color.white};
   font-weight: bold;
   font-size: ${({ theme: { size } }) => size.m};
@@ -109,41 +104,3 @@ const StyledHumidityValue = styled.p`
     font-size: ${({ theme: { size } }) => size.ss};
   `}
 `;
-
-const Info = ({ data }) => {
-  return (
-    <>
-      <StyledDate>
-        {format(new Date(), "HH:mmaaaa iiii, MMMM d, yyyy")}
-      </StyledDate>
-      <FlexRow>
-        <StyledCity>
-          {data.name}, {data.sys.country}
-        </StyledCity>
-        <StyledTemp>{Math.round(data.main.temp)}°</StyledTemp>
-      </FlexRow>
-      <StyledDataContainer>
-        <StyledContainer>
-          <StyledIcon>
-            <Wind />
-          </StyledIcon>
-          <StyledWindValue>{data.wind.speed} m/s</StyledWindValue>
-        </StyledContainer>
-        <StyledContainer>
-          <StyledIcon>
-            <Pressure />
-          </StyledIcon>
-          <StyledPressureValue>{data.main.pressure} hPa</StyledPressureValue>
-        </StyledContainer>
-        <StyledContainer>
-          <StyledIcon>
-            <Humidity />
-          </StyledIcon>
-          <StyledHumidityValue>{data.main.humidity}%</StyledHumidityValue>
-        </StyledContainer>
-      </StyledDataContainer>
-    </>
-  );
-};
-
-export default Info;

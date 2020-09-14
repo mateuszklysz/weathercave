@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import ReactMapGL from "react-map-gl";
-import media from "../../utils/media";
-
-const StyledContainer = styled.div`
-  width: 500px;
-  height: 300px;
-  ${media.phone`
-    width: 300px;
-    height: 200px;
-  `}
-`;
+import { Container } from "./Map.styles";
 
 const mapSettings = {
   mapboxApiAccessToken: process.env.GATSBY_MAPS_API,
@@ -37,14 +27,14 @@ const Map = ({ data }) => {
   }, [data]);
 
   return (
-    <StyledContainer>
+    <Container>
       <ReactMapGL
         {...mapSettings}
         {...viewport}
         onViewportChange={viewport => setViewport(viewport)}
         style={{ zIndex: 10 }}
       ></ReactMapGL>
-    </StyledContainer>
+    </Container>
   );
 };
 

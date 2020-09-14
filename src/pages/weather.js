@@ -1,24 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled from "styled-components";
+import { Container } from "../styles/weather.styles";
 import axios from "axios";
 import gsap from "gsap";
 import NavBar from "../components/NavBar/NavBar";
-import WeatherComponent from "../components/Weather/WeatherComponent";
+import WeatherWrapper from "../components/WeatherWrapper/WeatherWrapper";
 import NotFound from "../components/NotFound/NotFound";
 import Shape from "../components/Shape/Shape";
-
-const StyledContainer = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(
-    to top,
-    ${({ theme: { color } }) => color.brightly},
-    ${({ theme: { color } }) => color.cloudy}
-  );
-`;
 
 const Weather = props => {
   const inputData = props["*"].split("/");
@@ -96,10 +83,10 @@ const Weather = props => {
   if (found) {
     return (
       <div ref={wrapperRef} style={{ opacity: 0 }}>
-        <StyledContainer ref={containerRef}>
+        <Container ref={containerRef}>
           <NavBar />
-          <WeatherComponent data={result} />
-        </StyledContainer>
+          <WeatherWrapper data={result} />
+        </Container>
         <div className="shapesContainer">
           <Shape
             width="35%"
@@ -163,10 +150,10 @@ const Weather = props => {
   } else {
     return (
       <div ref={wrapperRef} style={{ opacity: 0 }}>
-        <StyledContainer ref={containerRef}>
+        <Container ref={containerRef}>
           <NavBar />
           <NotFound />
-        </StyledContainer>
+        </Container>
       </div>
     );
   }

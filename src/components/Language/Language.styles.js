@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import media from "../../utils/media";
 
-const StyledLang = styled.p`
+export const Lang = styled.p`
   width: 250px;
   text-align: center;
   color: ${({ theme: { color } }) => color.white};
@@ -12,9 +11,3 @@ const StyledLang = styled.p`
     display:none;
   `}
 `;
-
-const Language = () => {
-  return <StyledLang>ENG</StyledLang>;
-};
-
-export default Language;
