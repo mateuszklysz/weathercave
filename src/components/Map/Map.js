@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL from "!react-map-gl";
 import { Container } from "./Map.styles";
 
 const mapSettings = {

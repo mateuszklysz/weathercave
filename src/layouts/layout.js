@@ -2,12 +2,12 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../utils/globalStyles";
 import theme from "../utils/theme";
-import SEO from "../components/SEO/SEO";
+import Seo from "../components/SEO/SEO";
 
-export default ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <>
-      <SEO />
+      <Seo />
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         {children}
@@ -15,3 +15,5 @@ export default ({ children }) => {
     </>
   );
 };
+
+export default Layout;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container } from "../styles/weather.styles";
-import axios from "axios";
 import gsap from "gsap";
 import NavBar from "../components/NavBar/NavBar";
 import WeatherWrapper from "../components/WeatherWrapper/WeatherWrapper";
@@ -8,7 +7,7 @@ import NotFound from "../components/NotFound/NotFound";
 import Shape from "../components/Shape/Shape";
 
 const Weather = props => {
-  const inputData = props["*"].split("/");
+  const inputData = props["*"].split("/")[0];
   const [found, setFound] = useState(false);
   const [result, setResult] = useState("");
   const wrapperRef = useRef(null);
@@ -36,16 +35,15 @@ const Weather = props => {
   }, [found]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputData[0].toLowerCase()}&units=metric&appid=${
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputData.toLowerCase()}&units=metric&appid=${
           process.env.GATSBY_WEATHER_API
         }`
-      )
-      .then(response => {
-        setResult(response.data);
-      })
-      .then(() => {
+      );
+      const data = await response.json();
+      if (data.cod === 200) {
+        setResult(data);
         setFound(true);
         const tl = gsap.timeline();
         tl.fromTo(
@@ -62,8 +60,7 @@ const Weather = props => {
         ).to(containerRef.current.children, {
           y: 0,
         });
-      })
-      .catch(() => {
+      } else {
         setFound(false);
         gsap.fromTo(
           containerRef.current.children[1],
@@ -76,9 +73,10 @@ const Weather = props => {
             autoAlpha: 1,
           }
         );
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputData[0]]);
+      }
+    };
+    fetchData();
+  }, [inputData]);
 
   if (found) {
     return (
